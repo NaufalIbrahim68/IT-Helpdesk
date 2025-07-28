@@ -40,12 +40,7 @@
         </a>
     </li>
 
-    <li class="nav-item {{ request()->is('manajemen-user') ? 'active' : '' }}">
-        <a class="nav-link d-flex align-items-center text-black" href="{{ route('manajemen-user.index') }}">
-            <i class="fas fa-users-cog me-2 text-black"></i>
-            <span>Manajemen User</span>
-        </a>
-    </li>
+   
 
     <!-- Logout -->
     <li class="nav-item">
