@@ -107,10 +107,10 @@
     <script src="{{ asset('template-admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
     <script src="{{ asset('template-admin/js/sb-admin-2.min.js') }}"></script>
 
-    <!-- Chart.js -->
+    {{-- <!-- Chart.js -->
     <script src="{{ asset('template-admin/vendor/chart.js/Chart.min.js') }}"></script>
     <script src="{{ asset('template-admin/js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('template-admin/js/demo/chart-pie-demo.js') }}"></script>
+    <script src="{{ asset('template-admin/js/demo/chart-pie-demo.js') }}"></script> --}}
     @stack('scripts')
 </body>
 
