@@ -9,7 +9,7 @@
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <title>{{ $title ?? 'PT Astra Visteon Indonesia' }}</title>
+    <title>{{ $title ?? 'IT-Helpdesk' }}</title>
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('assets/images/AVI.png') }}">

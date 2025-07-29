@@ -96,12 +96,12 @@ public function addToPriority($id)
 {
     $ticket = Ticketing::with('user')->findOrFail($id);
 
-    $exists = \App\Models\PrioritasTicket::where('id_user', $ticket->id_user)->first();
+    $exists = PrioritasTicket::where('id_user', $ticket->id_user)->first();
     if ($exists) {
         return back()->with('warning', 'User sudah ada di daftar prioritas.');
     }
 
-    \App\Models\PrioritasTicket::create([
+    PrioritasTicket::create([
         'id_user' => $ticket->id_user,
         'name' => $ticket->name,
         'npk' => $ticket->user->npk ?? '-', // ambil dari relasi
