@@ -23,7 +23,7 @@
 
                 <!-- Filter Status -->
                 <div class="flex items-center space-x-2">
-                    <label for="status" class="text-sm font-medium text-gray-700">Status:</label>
+                    <label for="status" class="text-sm font-medium text-dark">Status:</label>
                     <select name="status" id="status"
                         class="border border-gray-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         <option value="">-- Semua Status --</option>

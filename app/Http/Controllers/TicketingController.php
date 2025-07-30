@@ -104,8 +104,7 @@ public function addToPriority($id)
     PrioritasTicket::create([
         'id_user' => $ticket->id_user,
         'name' => $ticket->name,
-        'npk' => $ticket->user->npk ?? '-', // ambil dari relasi
-        'department' => $ticket->user->department ?? '-', // ambil dari relasi user
+        'npk' => $ticket->user->npk ?? '-', 
         'added_at' => now(),
     ]);
 

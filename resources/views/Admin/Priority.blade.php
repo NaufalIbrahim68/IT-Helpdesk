@@ -37,12 +37,12 @@
                                     <tr>
                                         <th width="40">
                                         </th>
-                                        <th>No</th>
-                                        <th>Nama</th>
-                                        <th>Subject</th>
-                                        <th>Deskripsi</th>
-                                        <th>Tanggal Ditambahkan</th>
-                                        <th width="100">Aksi</th>
+                                        <th class="text-dark">No</th>
+                                        <th class="text-dark">Nama</th>
+                                        <th class="text-dark">Subject</th>
+                                        <th class="text-dark">Deskripsi</th>
+                                        <th class="text-dark">Tanggal Ditambahkan</th>
+                                        <th width="100" class="text-dark">Aksi</th>
                                     </tr>
                                 </thead>
                                 <tbody id="priorityTableBody">
@@ -50,12 +50,13 @@
                                         <tr>
                                             <td>
                                             </td>
-                                            <td>{{ $index + 1 }}</td>
-                                            <td>{{ $item->name }}</td>
-                                            <td>{{ $item->ticket->subject ?? '-' }}</td>
-                                            <td>{{ $item->ticket->description ?? '-' }}</td>
-                                            <td>{{ \Carbon\Carbon::parse($item->added_at)->format('d-m-Y') }}</td>
-                                            <td>
+                                            <td class="text-dark">{{ $index + 1 }}</td>
+                                            <td class="text-dark">{{ $item->name }}</td>
+                                            <td class="text-dark">{{ $item->ticket->subject ?? '-' }}</td>
+                                            <td class="text-dark">{{ $item->ticket->description ?? '-' }}</td>
+                                            <td class="text-dark">{{ \Carbon\Carbon::parse($item->added_at)->format('d-m-Y') }}
+                                            </td>
+                                            <td class="text-dark">
                                                 <form action="{{ route('prioritas.destroy', $item->id) }}" method="POST"
                                                     onsubmit="return confirm('Yakin hapus user ini dari prioritas?')"
                                                     class="d-inline">

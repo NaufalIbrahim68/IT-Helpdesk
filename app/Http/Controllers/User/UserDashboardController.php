@@ -12,7 +12,12 @@ class UserDashboardController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $subjects = $user->ticketings()->orderByDesc('created_at')->get();
+        
+        // Using raw query instead of relationship
+        $subjects = DB::table('ticketings')
+            ->where('id_user', $user->id_user)
+            ->orderByDesc('created_at')
+            ->get();
 
         return view('user.dashboard', compact('subjects'));
     }
@@ -25,13 +30,14 @@ class UserDashboardController extends Controller
         ]);
 
         DB::table('ticketings')->insert([
-    'id_user' => auth()->user()->id_user, 
-    'subject' => $request->subject,
-    'description' => $request->deskripsi,
-    'status' => 'pending',
-    'created_at' => now(),
-    'updated_at' => now(),
-]);
+            'id_user' => auth()->user()->id_user, 
+            'subject' => $request->subject,
+            'description' => $request->deskripsi,
+            'status' => 'pending',
+            'created_at' => now(),
+            'updated_at' => now(),
+        ]);
+        
         return redirect()->route('dashboard')->with('success', 'Data berhasil disimpan!');
     }
 }
