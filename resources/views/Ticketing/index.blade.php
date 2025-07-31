@@ -109,13 +109,13 @@
                                         @csrf
                                         @method('PATCH')
                                         <select name="status" class="status-select border-0 rounded-full text-xs font-medium px-3 py-1 focus:ring-2 focus:ring-offset-2 cursor-pointer transition-all duration-200
-                                                            @if($ticket->status == 'pending') bg-yellow-100 text-yellow-800 focus:ring-yellow-500
-                                                            @elseif($ticket->status == 'in progress') bg-blue-100 text-blue-800 focus:ring-blue-500
-                                                            @elseif($ticket->status == 'solved') bg-green-100 text-green-800 focus:ring-green-500
-                                                            @elseif($ticket->status == 'on the list') bg-purple-100 text-purple-800 focus:ring-purple-500
-                                                            @elseif($ticket->status == 'reject') bg-red-100 text-red-800 focus:ring-red-500
-                                                            @else bg-gray-100 text-gray-800 focus:ring-gray-500
-                                                            @endif" onchange="this.form.submit()">
+                                                                    @if($ticket->status == 'pending') bg-yellow-100 text-yellow-800 focus:ring-yellow-500
+                                                                    @elseif($ticket->status == 'in progress') bg-blue-100 text-blue-800 focus:ring-blue-500
+                                                                    @elseif($ticket->status == 'solved') bg-green-100 text-green-800 focus:ring-green-500
+                                                                    @elseif($ticket->status == 'on the list') bg-purple-100 text-purple-800 focus:ring-purple-500
+                                                                    @elseif($ticket->status == 'reject') bg-red-100 text-red-800 focus:ring-red-500
+                                                                    @else bg-gray-100 text-gray-800 focus:ring-gray-500
+                                                                    @endif" onchange="this.form.submit()">
                                             <option value="pending" {{ $ticket->status == 'pending' ? 'selected' : '' }}>🔄 Belum
                                                 Ditangani</option>
                                             <option value="in progress" {{ $ticket->status == 'in progress' ? 'selected' : '' }}>⚡
@@ -310,10 +310,6 @@
                 </div>
             @endif
         </div>
-
-
-
-
         <style>
             .status-select {
                 appearance: none;
@@ -354,93 +350,4 @@
                 pointer-events: none;
             }
         </style>
-
 @endsection
-
-    @push('scripts')
-        <script>
-            $(function () {
-                // Initialize DataTable if exists
-                if ($('#example').length) {
-                    $('#example').DataTable({
-                        layout: {
-                            topStart: {
-                                buttons: [{
-                                    extend: 'excel',
-                                    text: '<i class="fas fa-file-excel"></i> Export Excel',
-                                    className: 'btn btn-success btn-sm'
-                                },
-                                {
-                                    extend: 'pdf',
-                                    text: '<i class="fas fa-file-pdf"></i> Export PDF',
-                                    className: 'btn btn-danger btn-sm'
-                                }
-                                ]
-                            }
-                        },
-                        responsive: true,
-                        autoWidth: false,
-                        pageLength: 10,
-                        language: {
-                            "sProcessing": "Sedang memproses...",
-                            "sLengthMenu": "Tampilkan _MENU_ data per halaman",
-                            "sZeroRecords": "Tidak ditemukan data yang sesuai",
-                            "sInfo": "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
-                            "sInfoEmpty": "Menampilkan 0 sampai 0 dari 0 data",
-                            "sInfoFiltered": "(disaring dari _MAX_ total data)",
-                            "sSearch": "Cari:",
-                            "oPaginate": {
-                                "sFirst": "Pertama",
-                                "sPrevious": "Sebelumnya",
-                                "sNext": "Selanjutnya",
-                                "sLast": "Terakhir"
-                            }
-                        }
-                    });
-                }
-
-                // Add loading state to pagination links
-                $('nav[aria-label="Pagination"] a').click(function () {
-                    $(this).closest('nav').addClass('pagination-loading');
-                });
-
-                // Auto-submit form when changing page size
-                $('select[name="per_page"]').change(function () {
-                    $(this).closest('form').submit();
-                });
-
-                // Validate page jump input
-                $('input[name="page"]').on('input', function () {
-                    var value = parseInt($(this).val());
-                    var max = parseInt($(this).attr('max'));
-                    var min = parseInt($(this).attr('min'));
-
-                    if (value > max) {
-                        $(this).val(max);
-                    } else if (value < min) {
-                        $(this).val(min);
-                    }
-                });
-
-                // Add keyboard navigation for pagination
-                $(document).keydown(function (e) {
-                    if (e.ctrlKey || e.metaKey) {
-                        switch (e.which) {
-                            case 37: // Left arrow
-                                var prevLink = $('nav[aria-label="Pagination"] a:contains("Previous")');
-                                if (prevLink.length) {
-                                    window.location = prevLink.attr('href');
-                                }
-                                break;
-                            case 39: // Right arrow
-                                var nextLink = $('nav[aria-label="Pagination"] a:contains("Next")');
-                                if (nextLink.length) {
-                                    window.location = nextLink.attr('href');
-                                }
-                                break;
-                        }
-                    }
-                });
-            });
-        </script>
-    @endpush
