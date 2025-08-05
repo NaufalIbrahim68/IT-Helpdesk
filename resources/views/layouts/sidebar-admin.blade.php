@@ -55,9 +55,7 @@
 
     <hr class="sidebar-divider">
 
-    <div class="text-center d-none d-md-inline my-3">
-        <button class="rounded-circle border-0 shadow" id="sidebarToggle"></button>
-    </div>
+    
 
 </ul>
 

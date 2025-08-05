@@ -24,10 +24,8 @@
     {{-- chart.js --}}
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
-    <!-- Bootstrap 5 -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css" />
-   <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
-    @stack('styles')
+    
+  
 
     <style>
         body {
@@ -102,15 +100,7 @@
     <!-- DataTables -->
     <script src="https://cdn.datatables.net/2.3.2/js/dataTables.js"></script>
 
-    <!-- SB Admin 2 Scripts -->
-    <script src="{{ asset('template-admin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('template-admin/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-    <script src="{{ asset('template-admin/js/sb-admin-2.min.js') }}"></script>
-
-    {{-- <!-- Chart.js -->
-    <script src="{{ asset('template-admin/vendor/chart.js/Chart.min.js') }}"></script>
-    <script src="{{ asset('template-admin/js/demo/chart-area-demo.js') }}"></script>
-    <script src="{{ asset('template-admin/js/demo/chart-pie-demo.js') }}"></script> --}}
+    
     @stack('scripts')
 </body>
 

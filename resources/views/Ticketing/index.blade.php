@@ -109,13 +109,13 @@
                                         @csrf
                                         @method('PATCH')
                                         <select name="status" class="status-select border-0 rounded-full text-xs font-medium px-3 py-1 focus:ring-2 focus:ring-offset-2 cursor-pointer transition-all duration-200
-                                                                    @if($ticket->status == 'pending') bg-yellow-100 text-yellow-800 focus:ring-yellow-500
-                                                                    @elseif($ticket->status == 'in progress') bg-blue-100 text-blue-800 focus:ring-blue-500
-                                                                    @elseif($ticket->status == 'solved') bg-green-100 text-green-800 focus:ring-green-500
-                                                                    @elseif($ticket->status == 'on the list') bg-purple-100 text-purple-800 focus:ring-purple-500
-                                                                    @elseif($ticket->status == 'reject') bg-red-100 text-red-800 focus:ring-red-500
-                                                                    @else bg-gray-100 text-gray-800 focus:ring-gray-500
-                                                                    @endif" onchange="this.form.submit()">
+                                                                            @if($ticket->status == 'pending') bg-yellow-100 text-yellow-800 focus:ring-yellow-500
+                                                                            @elseif($ticket->status == 'in progress') bg-blue-100 text-blue-800 focus:ring-blue-500
+                                                                            @elseif($ticket->status == 'solved') bg-green-100 text-green-800 focus:ring-green-500
+                                                                            @elseif($ticket->status == 'on the list') bg-purple-100 text-purple-800 focus:ring-purple-500
+                                                                            @elseif($ticket->status == 'reject') bg-red-100 text-red-800 focus:ring-red-500
+                                                                            @else bg-gray-100 text-gray-800 focus:ring-gray-500
+                                                                            @endif" onchange="this.form.submit()">
                                             <option value="pending" {{ $ticket->status == 'pending' ? 'selected' : '' }}>🔄 Belum
                                                 Ditangani</option>
                                             <option value="in progress" {{ $ticket->status == 'in progress' ? 'selected' : '' }}>⚡

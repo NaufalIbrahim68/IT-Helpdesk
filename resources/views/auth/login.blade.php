@@ -7,7 +7,7 @@
 
             {{-- Logo --}}
             <div class="text-center mb-4">
-                <img src="{{ asset('assets/images/AVI.png') }}" alt="Astra Visteon Indonesia" style="height: 80px; width: auto;">
+                <img src="{{ asset('assets/images/AVI.png') }}" alt="Astra Visteon Indonesia" style="height: 80px;">
             </div>
 
             {{-- Error Message --}}
@@ -22,19 +22,24 @@
             <form method="POST" action="{{ route('login') }}">
                 @csrf
 
-                   <input type="hidden" name="role" value="{{ $role }}">
-                <div class="mb-3">
-                    <label for="npk">NPK</label>
-                    <input type="text" class="form-control" name="npk" required>
-                </div>
-                <div class="mb-3">
-                    <label for="password">Password</label>
-                    <input type="password" class="form-control" name="password" required>
-                </div>
-                <button type="submit" class="btn btn-primary">Login</button>
+                <label for="npk">NPK</label>
+                <input type="text" name="npk" id="npk" required class="form-control mb-3">
+
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required class="form-control mb-4">
+
+                {{-- Optional Role Selector (hapus kalau tidak dibutuhkan) --}}
+                {{-- 
+                <label for="role">Login Sebagai</label>
+                <select name="role" id="role" class="form-select mb-3">
+                    <option value="user">User</option>
+                    <option value="admin">Admin</option>
+                </select> 
+                --}}
+
+                <button type="submit" class="btn btn-primary w-100">Login</button>
             </form>
 
-            </div>
         </div>
     </div>
 </div>
